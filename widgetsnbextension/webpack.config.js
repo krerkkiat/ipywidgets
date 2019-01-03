@@ -1,4 +1,6 @@
 var path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+
 module.exports = {
     entry: './src/extension.js',
     output: {
@@ -6,6 +8,9 @@ module.exports = {
         path: path.resolve(__dirname, 'widgetsnbextension', 'static'),
         libraryTarget: 'amd'
     },
+    plugins: [
+        new UglifyJsPlugin(),
+    ],
     devtool: 'source-map',
     module: {
         rules: [
